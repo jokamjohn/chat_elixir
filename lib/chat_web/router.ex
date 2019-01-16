@@ -7,5 +7,6 @@ defmodule ChatWeb.Router do
 
   scope "/api", ChatWeb do
     pipe_through :api
+    resources "/users", UserController, except: [:new, :edit]
   end
 end

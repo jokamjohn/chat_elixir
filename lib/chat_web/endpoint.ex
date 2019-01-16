@@ -40,5 +40,9 @@ defmodule ChatWeb.Endpoint do
     key: "_chat_key",
     signing_salt: "mOcYmy83"
 
+  plug Corsica,
+       origins: ["http://localhost", ~r{^https?://(.*\.?)foo\.com$}],
+       log: [rejected: :error, invalid: :warn, accepted: :debug]
+
   plug ChatWeb.Router
 end
